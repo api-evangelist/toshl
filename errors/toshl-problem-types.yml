@@ -1,0 +1,60 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.toshl.com/docs/errors
+format: custom
+description: >
+  Toshl API errors use standard HTTP status codes plus a JSON error body with an
+  `id` (machine-readable error identifier) and `description` (human-readable,
+  localizable via the Accept-Language header; defaults to English). Validation
+  failures return an `input_error` id with a `fields[]` array naming each field
+  and its error. The API does not use RFC 9457 application/problem+json.
+envelope:
+  fields:
+    - name: id
+      description: Machine-readable error identifier (e.g. account_limit, input_error)
+    - name: description
+      description: Human-readable error description, localizable via Accept-Language
+    - name: fields
+      description: "Validation errors only: array of {field, error} objects"
+example:
+  id: input_error
+  description: Could not insert expense.
+  fields:
+    - field: amount
+      error: Amount cannot be zero.
+problems:
+  - status: 400
+    title: Bad Request
+    detail: Malformed request or validation failure; body carries id input_error with fields[]
+  - status: 401
+    title: Unauthorized
+    detail: Missing or invalid credentials (OAuth2 bearer token or personal token basic auth)
+  - status: 402
+    title: Payment Required
+    detail: Used for multi-factor-authentication-required conditions
+  - status: 403
+    title: Forbidden
+    detail: Authenticated but not allowed (e.g. free accounts uploading entry images returns 403; pro feature required)
+  - status: 404
+    title: Not Found
+    detail: Resource does not exist
+  - status: 405
+    title: Method Not Allowed
+    detail: HTTP method not supported on this resource
+  - status: 409
+    title: Conflict
+    detail: Conflicting change; requires user resolution before retrying
+  - status: 429
+    title: Too Many Requests
+    detail: Rate limit exceeded; see X-RateLimit-Limit / X-RateLimit-Remaining headers and the /rate-limit endpoint
+  - status: 500
+    title: Internal Server Error
+    detail: Server-side failure
+  - status: 503
+    title: Service Unavailable
+    detail: Temporary unavailability
+known_error_ids:
+  - id: account_limit
+    description: Account limit reached.
+  - id: input_error
+    description: Validation failure; accompanied by fields[] detailing each field error

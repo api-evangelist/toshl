@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.toshl.com/docs/
+description: >
+  Cross-cutting request/response conventions of the Toshl API, captured from
+  the developer documentation overview. REST-style JSON API over HTTPS at
+  https://api.toshl.com with hypermedia (JSON Hyper-Schema) in responses.
+authentication:
+  style: OAuth2 bearer token or HTTP Basic with long-lived personal tokens
+  artifact: authentication/toshl-authentication.yml
+versioning:
+  style: media-type
+  media_type: application/vnd.toshl+json
+  current: 1
+idempotency:
+  supported: false
+  notes: No idempotency-key mechanism is documented; conflicting concurrent
+    changes surface as HTTP 409 Conflict responses that require user resolution.
+pagination:
+  style: page-based
+  default_per_page: 200
+  params: [page, per_page]
+  response: HTTP Link header with first, previous, next, last relations (RFC 8288 style)
+  ordering: Most recently changed resources first
+rate_limits:
+  signaling: headers
+  headers: [X-RateLimit-Limit, X-RateLimit-Remaining]
+  status: 429 Too Many Requests when exceeded
+  endpoint: /rate-limit (not itself rate-limited)
+  artifact: null
+error_envelope:
+  shape: '{id, description, fields[]?}'
+  localization: Accept-Language header; defaults to English
+  artifact: errors/toshl-problem-types.yml
+data_formats:
+  timestamps: ISO 8601 (YYYY-MM-DDTHH:MM:SSZ)
+  dates: ISO 8601 (YYYY-MM-DD)
+  currencies: ISO 4217
+  repeats: RFC 5545 RRULE (byday, bymonthday, bysetpos)
+metadata:
+  extra_field: The `extra` parameter accepts arbitrary custom JSON stored with resources
+hypermedia:
+  json_hyper_schema: true
+  notes: Responses embed JSON Hyper-Schema links
+conflict_handling:
+  status: 409
+  notes: Conflicts require user resolution before the change can be retried
+methods: [GET, POST, PUT, PATCH, DELETE]
+cross_links:
+  errors: errors/toshl-problem-types.yml
+  authentication: authentication/toshl-authentication.yml
+  changelog: changelog/toshl-changelog.yml
+  lifecycle: lifecycle/toshl-lifecycle.yml

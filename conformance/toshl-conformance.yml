@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: derived
+source: https://developer.toshl.com/docs/
+description: >
+  Industry / cross-cutting standards conformance for the Toshl API, derived
+  from the published developer documentation. No formal compliance program or
+  certifications are published by Toshl.
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: OAuth 2.0 authorization code and implicit grants at https://toshl.com/oauth2/authorize + /oauth2/token, with resource:r/rw scopes (https://developer.toshl.com/docs/oauth)
+  - id: oidc
+    conforms: false
+    evidence: No OpenID Connect discovery document; /.well-known/openid-configuration returns 403/404 on all Toshl hosts (probed 2026-07-21)
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use a custom {id, description, fields[]} JSON envelope, not application/problem+json (https://developer.toshl.com/docs/errors)
+  - id: rfc8288-web-linking
+    conforms: true
+    evidence: Pagination is exposed via the HTTP Link header with first/previous/next/last relations
+  - id: rfc5545-icalendar-rrule
+    conforms: true
+    evidence: Repeating entries follow RFC 5545 RRULE semantics (frequency, interval, byday, bymonthday, bysetpos)
+  - id: iso8601-dates
+    conforms: true
+    evidence: Timestamps YYYY-MM-DDTHH:MM:SSZ and dates YYYY-MM-DD are ISO 8601
+  - id: iso4217-currencies
+    conforms: true
+    evidence: Currency codes use ISO 4217
+  - id: json-hyper-schema
+    conforms: true
+    evidence: Responses embed JSON Hyper-Schema hypermedia links
+  - id: pagination
+    conforms: true
+    evidence: Page-based pagination, default 200 per page, per_page parameter, Link header navigation
+  - id: rate-limit-headers
+    conforms: true
+    evidence: X-RateLimit-Limit and X-RateLimit-Remaining headers plus a dedicated /rate-limit endpoint
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency-key mechanism documented; 409 Conflict requires user resolution
+  - id: psd2
+    conforms: false
+    evidence: Consumer PFM app; bank connections are consumed via aggregators, no PSD2 API published

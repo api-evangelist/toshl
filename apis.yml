@@ -1,7 +1,26 @@
 aid: toshl
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/toshl.png
 name: Toshl
-description: Toshl is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Toshl Finance is a personal finance and budgeting platform (a 500 Global
+  portfolio company, founded in Slovenia) that helps people track expenses, organize
+  bills, and budget across mobile and web apps, with bank account connections or
+  manual entry. Its Toshl API at api.toshl.com exposes the user's complete
+  personal-finance graph - accounts, entries (expenses and incomes), budgets,
+  categories, tags, locations, images, currencies, exports, planning, and bank
+  institutions/connections/imports - as a REST JSON API with OAuth 2.0
+  (per-resource read/read-write scopes) or long-lived personal tokens.
 url: https://raw.githubusercontent.com/api-evangelist/toshl/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,17 +28,105 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
+- Personal Finance
+- Budgeting
+- Expense Tracking
+- FinTech
+- Banking
+- Consumer Apps
 - Company
-apis: []
+apis:
+- name: Toshl API
+  description: REST JSON API for the Toshl personal finance platform. Manage
+    accounts, entries (expenses and incomes with repeats per RFC 5545, transactions,
+    images, locations), budgets, categories, tags, currencies, exports, planning,
+    and bank institutions/connections/imports. OAuth 2.0 (authorization code and
+    implicit) with per-resource r/rw scopes or personal-token basic auth; versioned
+    via the application/vnd.toshl+json media type; Link-header pagination and
+    X-RateLimit headers.
+  humanURL: https://developer.toshl.com/docs/
+  baseURL: https://api.toshl.com
+  tags:
+  - Personal Finance
+  - Budgeting
+  - Expenses
+  - Accounts
+  - Banking
+  properties:
+  - type: Documentation
+    url: https://developer.toshl.com/docs/
+  - type: APIReference
+    url: https://developer.toshl.com/docs/
+  - type: Authentication
+    url: https://developer.toshl.com/docs/oauth
+  - type: Errors
+    url: https://developer.toshl.com/docs/errors
+  - type: ChangeLog
+    url: https://developer.toshl.com/docs/changelog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/toshl-domain-security.yml
 - type: Website
   url: https://toshl.com
+- type: DeveloperPortal
+  url: https://developer.toshl.com/
+- type: Documentation
+  url: https://developer.toshl.com/docs/
+- type: APIReference
+  url: https://developer.toshl.com/docs/
+- type: GettingStarted
+  url: https://developer.toshl.com/
+- type: TermsOfService
+  url: https://toshl.com/terms/
+- type: PrivacyPolicy
+  url: https://toshl.com/privacy/
+- type: Pricing
+  url: https://toshl.com/pricing/
+- type: SignUp
+  url: https://toshl.com/signup
+- type: Login
+  url: https://toshl.com/login
+- type: Blog
+  url: https://toshl.com/blog/
+- type: Support
+  url: https://support.toshl.com/
+- type: GitHubOrganization
+  url: https://github.com/toshl
+- type: StatusPage
+  url: https://status.toshl.com
+- type: Authentication
+  url: authentication/toshl-authentication.yml
+- type: OAuthScopes
+  url: scopes/toshl-scopes.yml
+- type: ErrorCatalog
+  url: errors/toshl-problem-types.yml
+- type: Conventions
+  url: conventions/toshl-conventions.yml
+- type: ChangeLog
+  url: changelog/toshl-changelog.yml
+- type: Conformance
+  url: conformance/toshl-conformance.yml
+- type: Lifecycle
+  url: lifecycle/toshl-lifecycle.yml
+- type: LLMsTxt
+  url: llms/toshl-llms.txt
+- type: WellKnown
+  url: well-known/toshl-well-known.yml
+- type: Packages
+  url: packages/toshl-packages.yml
+- type: RateLimits
+  url: rate-limits/toshl-rate-limits.yml

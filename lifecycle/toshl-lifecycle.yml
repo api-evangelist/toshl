@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.toshl.com/
+description: >
+  Lifecycle posture of the Toshl API. Versioning is carried in the vendor
+  media type (application/vnd.toshl+json, version 1). Toshl operates a public
+  status page at status.toshl.com. No deprecation policy, Sunset/Deprecation
+  header support (RFC 8594), or SLA is published; the API changelog has been
+  quiet since 2017, indicating a stable, slowly-evolving surface.
+versioning:
+  scheme: media-type
+  media_type: application/vnd.toshl+json
+  current: '1'
+  docs: https://developer.toshl.com/docs/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy found (2026-07-21)
+sla:
+  url: null
+status_page: https://status.toshl.com
+changelog: https://developer.toshl.com/docs/changelog
+api_terms: https://developer.toshl.com/terms
+deprecated_operations: []

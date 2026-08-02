@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: searched
+source: registry search (npm, PyPI, RubyGems, Packagist, crates.io, NuGet) 2026-07-21
+description: >
+  Toshl ships no first-party client libraries — the GitHub org
+  (https://github.com/toshl) holds only internal dependencies and forks, and
+  the developer portal documents no SDKs. Community-maintained clients exist
+  on PyPI, RubyGems, and Packagist. crates.io and NuGet have nothing; the npm
+  name `toshl` was published once in 2022 and immediately unpublished.
+packages:
+  - language: python
+    registry: pypi
+    name: toshl
+    version: 0.0.3
+    url: https://pypi.org/project/toshl/
+    install: pip install toshl
+    official: false
+    author: Andrea Grandi
+    source_code: https://github.com/andreagrandi/toshl-python
+    license: MIT
+    notes: Community Python client library for the Toshl API
+  - language: ruby
+    registry: rubygems
+    name: toshl-ruby
+    version: 0.1.0
+    url: https://rubygems.org/gems/toshl-ruby
+    install: gem install toshl-ruby
+    official: false
+    license: MIT
+    notes: Community Ruby client (3.7k downloads)
+  - language: php
+    registry: packagist
+    name: caveja/toshl-client
+    url: https://packagist.org/packages/caveja/toshl-client
+    install: composer require caveja/toshl-client
+    official: false
+    source_code: https://github.com/dopanest/toshl-client
+    notes: Community PHP client for the Toshl API

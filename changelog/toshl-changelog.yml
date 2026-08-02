@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.toshl.com/docs/changelog
+url: https://developer.toshl.com/docs/changelog
+description: >
+  Toshl API developer changelog. Entries are dated (no semantic version
+  numbers); the API itself is versioned via the vendor media type
+  application/vnd.toshl+json (currently version 1). The changelog has been
+  quiet since 2017, with the docs last modified 8 January 2024 — the API
+  surface is stable/mature rather than actively evolving.
+scheme: dated
+current_version: '1 (media type application/vnd.toshl+json)'
+entries:
+  - date: '2017-01-04'
+    type: addition
+    highlights:
+      - Added planning related documentation.
+  - date: '2016-06-06'
+    type: addition
+    highlights:
+      - Added banking related documentation (institutions, connections, imports).
+  - date: '2016-04-26'
+    type: addition
+    highlights:
+      - Can now create personal tokens in the apps section.
+  - date: '2016-03-18'
+    type: addition
+    highlights:
+      - Added preliminary import documentation.

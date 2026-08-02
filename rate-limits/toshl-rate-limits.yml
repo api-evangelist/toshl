@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.toshl.com/docs/
+description: >
+  Toshl API rate limiting as documented. Each authenticated principal gets a
+  finite request allocation per period; Toshl does not publish the numeric
+  limits, exposing them instead at runtime via response headers and a
+  dedicated endpoint.
+signaling:
+  headers:
+    - name: X-RateLimit-Limit
+      description: Number of requests allocated for the current period
+    - name: X-RateLimit-Remaining
+      description: Requests remaining before the limit is reached
+  status_on_exceeded: 429
+  endpoint:
+    path: /rate-limit
+    description: Returns current rate-limit state; this endpoint is itself not rate-limited
+limits: []
+notes: Numeric limits are not published in the docs; discover them per token via the /rate-limit endpoint.

@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+description: >
+  Probe of the /.well-known/ discovery surface on Toshl hosts (2026-07-21).
+  No well-known documents are published. api.toshl.com returns clean 404s;
+  toshl.com and developer.toshl.com return 403 to non-browser clients
+  (bot-gated CDN), so absence there is inferred rather than confirmed.
+hosts:
+  - host: https://api.toshl.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /llms.txt, status: 404}
+  - host: https://toshl.com
+    documents:
+      - {path: /.well-known/security.txt, status: 403}
+      - {path: /.well-known/openid-configuration, status: 403}
+      - {path: /.well-known/oauth-authorization-server, status: 403}
+      - {path: /.well-known/api-catalog, status: 403}
+      - {path: /.well-known/ai-plugin.json, status: 403}
+      - {path: /llms.txt, status: 403}
+  - host: https://developer.toshl.com
+    documents:
+      - {path: /.well-known/security.txt, status: 403}
+      - {path: /.well-known/openid-configuration, status: 403}
+      - {path: /.well-known/oauth-authorization-server, status: 403}
+      - {path: /.well-known/api-catalog, status: 403}
+      - {path: /.well-known/ai-plugin.json, status: 403}
+      - {path: /llms.txt, status: 403}

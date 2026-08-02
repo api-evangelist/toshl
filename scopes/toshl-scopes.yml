@@ -1,0 +1,50 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.toshl.com/docs/oauth
+docs: https://developer.toshl.com/docs/oauth
+description: >
+  Toshl API OAuth 2.0 scopes. Scopes are granted per resource with :r (read) or
+  :rw (read & write) access levels. The entries scope also grants access to
+  tags, repeats, and export.
+schemes:
+  - name: OAuth2
+    source: https://developer.toshl.com/docs/oauth
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://toshl.com/oauth2/authorize
+        tokenUrl: https://toshl.com/oauth2/token
+      - flow: implicit
+        authorizationUrl: https://toshl.com/oauth2/authorize
+scopes:
+  - scope: user:r
+    description: Read access to user information (email, name, etc.)
+  - scope: user:rw
+    description: Read and write access to user information
+  - scope: entries:r
+    description: Read access to financial entries (expenses and incomes); also grants tags, repeats, and export access
+  - scope: entries:rw
+    description: Read and write access to financial entries; also grants tags, repeats, and export access
+  - scope: budgets:r
+    description: Read access to budget data
+  - scope: budgets:rw
+    description: Read and write access to budget data
+  - scope: accounts:r
+    description: Read access to account information
+  - scope: accounts:rw
+    description: Read and write access to account information
+  - scope: images:r
+    description: Read access to entry images
+  - scope: images:rw
+    description: Read and write access to entry images (pro accounts only for upload)
+  - scope: categories:r
+    description: Read access to spending categories
+  - scope: categories:rw
+    description: Read and write access to spending categories
+  - scope: tags:r
+    description: Read access to transaction tags
+  - scope: tags:rw
+    description: Read and write access to transaction tags
+  - scope: locations:r
+    description: Read access to entry locations
+  - scope: locations:rw
+    description: Read and write access to entry locations

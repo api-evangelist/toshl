@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.toshl.com/docs/
+docs: https://developer.toshl.com/docs/oauth
+description: >
+  The Toshl API supports two authentication methods: OAuth 2.0 bearer tokens
+  (authorization code and implicit grants; user-revocable) and HTTP Basic
+  authentication using long-lived personal tokens created in the Toshl account
+  settings (apps section, available since 26 April 2016). Access tokens default
+  to a 3600-second lifetime with refresh tokens for renewal; refresh tokens can
+  be revoked by users or Toshl staff at any time. Client registration (client_id
+  and client_secret) is required before using OAuth.
+summary:
+  types: [oauth2, http-basic]
+  oauth2_flows: [authorizationCode, implicit]
+  personal_tokens: true
+schemes:
+  - name: OAuth2
+    type: oauth2
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://toshl.com/oauth2/authorize
+        tokenUrl: https://toshl.com/oauth2/token
+        notes: Authorization code is valid for 30 seconds; token endpoint uses HTTP Basic auth with client credentials
+      - flow: implicit
+        authorizationUrl: https://toshl.com/oauth2/authorize
+        notes: For insecure clients; returns a token directly after user approval
+    token_lifetime_seconds: 3600
+    refresh_tokens: true
+    scopes_docs: https://developer.toshl.com/docs/oauth
+  - name: PersonalToken
+    type: http
+    scheme: basic
+    notes: Long-lived personal tokens generated in Toshl account settings, used via HTTP Basic authentication

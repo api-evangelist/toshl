@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: toshl.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Aug 25 08:04:20 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: developer.toshl.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Aug 25 08:04:20 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: api.toshl.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Aug 25 08:04:20 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+domains:
+- domain: toshl.com
+  dnssec: false
+  caa:
+  - 0 issue "letsencrypt.org"
+  - 0 issue "d-trust.net"
+  - 0 issue "entrust.net"
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
