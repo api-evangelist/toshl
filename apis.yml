@@ -40,6 +40,14 @@ tags:
 - Personal Finance
 - Budgeting
 - Expense Tracking
+- Fintech
+- Banking
+- Consumer Apps
+- Company
+tags_raw:
+- Personal Finance
+- Budgeting
+- Expense Tracking
 - FinTech
 - Banking
 - Consumer Apps
@@ -56,6 +64,12 @@ apis:
   humanURL: https://developer.toshl.com/docs/
   baseURL: https://api.toshl.com
   tags:
+  - Personal Finance
+  - Budgeting
+  - Expenses
+  - Account
+  - Banking
+  tags_raw:
   - Personal Finance
   - Budgeting
   - Expenses
